@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "StackQueue.h"
 
 #include <gtest.h>
 
@@ -9,38 +9,38 @@ TEST(Stack, can_create_stack_with_positive_length)
 
 TEST(Stack, cant_create_too_large_stack)
 {
-	ASSERT_ANY_THROW(Stack<int> v(MAX_VECTOR_SIZE+1));
+	ASSERT_ANY_THROW(Stack<int> v(MAX_VECTOR_SIZE + 1));
 }
 
 TEST(Stack, throws_when_create_stack_with_negative_length)
 {
 	ASSERT_ANY_THROW(Stack<int> v(-1));
 }
- 
-TEST(Stack, can_return_top) {
+
+TEST(Stack, can_return_top_element) {
 	Stack<int> v(2);
-	EXPECT_EQ(0,v.top());
+	EXPECT_EQ(0, v.top());
 }
 
-TEST(Stack, can_push_element) {
+TEST(Stack, can_push_element_in_stack) {
 	Stack<int> v(2);
 	v.push(1);
 	EXPECT_EQ(1, v.top());
 }
 
-TEST(Stack, push_change_size) {
+TEST(Stack, push_change_size_of_stack) {
 	Stack<int> v(2);
 	v.push(1);
-	EXPECT_NE(2,v.GetSize());
+	EXPECT_NE(2, v.GetSize());
 }
 
-TEST(Stack, can_do_pop) {
+TEST(Stack, can_do_pop_element_from_stack) {
 	Stack<int> v(1);
 	v.pop();
 	ASSERT_ANY_THROW(v[0]);
 }
 
-TEST(Stack, pop_change_size) {
+TEST(Stack, pop_change_size_of_stack) {
 	Stack<int> v(2);
 	v.pop();
 	EXPECT_NE(2, v.GetSize());
@@ -53,7 +53,7 @@ TEST(Stack, cant_do_pop_when_stack_is_empty) {
 
 TEST(Stack, return_true_when_stack_is_empty) {
 	Stack<int> v;
-	EXPECT_EQ(true,v.empty());
+	EXPECT_EQ(true, v.empty());
 }
 
 TEST(Stack, return_false_when_stack_isnt_empty) {
@@ -71,5 +71,4 @@ TEST(Stack, return_false_when_stack_isnt_full) {
 	v.push(1);
 	EXPECT_EQ(false, v.full());
 }
-
  

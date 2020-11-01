@@ -1,1 +1,2 @@
-Stack
+Stack and queue
+
